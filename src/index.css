@@ -67,3 +67,8 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+.pnf{
+  background-color: red;
+  color: #eee;
+  font-size: 1.2em;
+}
