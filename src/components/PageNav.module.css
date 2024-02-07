@@ -1,0 +1,9 @@
+.nav{
+  display: flex;
+}
+.nav li{
+  list-style: none;
+}
+.nav li a{
+  text-decoration: none;
+}
