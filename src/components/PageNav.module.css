@@ -5,10 +5,13 @@
 }
 
 .nav ul {
+  width: 100%;
   list-style: none;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 4rem;
+  /* outline: 1px solid red; */
 }
 
 .nav a:link,
@@ -31,4 +34,9 @@ a.ctaLink:visited {
   color: var(--color-dark--0);
   padding: 0.8rem 2rem;
   border-radius: 7px;
+}
+.nav div:nth-child(2){
+  /* outline: 1px solid red; */
+  display: flex;
+  gap: 3.5rem;
 }
