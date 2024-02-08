@@ -1,10 +1,9 @@
+import AppNav from "./AppNav"
+
 function AppLayout() {
   return (
     <div>
-      App Layout
-      App Layout
-      App Layout
-      App Layout
+      <AppNav />
     </div>
   )
 }
