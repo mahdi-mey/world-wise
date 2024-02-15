@@ -3,20 +3,19 @@ import {
   Navigate,
   Route,
   Routes,
-  // useSearchParams,
 } from "react-router-dom";
-// import { useEffect, useState } from "react";
 
-import Products from "./pages/Product";
-import Pricing from "./pages/Pricing";
-import Homepage from "./pages/Homepage";
-import PageNotFound from "./pages/PageNotFound";
-import Login from "./pages/Login";
-import AppLayout from "./pages/AppLayout";
-import CityList from "./components/CityList";
-import CountryList from "./components/CountryList";
-import City from "./components/City";
-import Form from "./components/Form";
+import Products       from "./pages/Product";
+import Pricing        from "./pages/Pricing";
+import Homepage       from "./pages/Homepage";
+import PageNotFound   from "./pages/PageNotFound";
+import Login          from "./pages/Login";
+import AppLayout      from "./pages/AppLayout";
+import CityList       from "./components/CityList";
+import CountryList    from "./components/CountryList";
+import City           from "./components/City";
+import Form           from "./components/Form";
+
 import { CitiesProvider } from "./contexts/citiesContext";
 
 function App() {
@@ -24,17 +23,17 @@ function App() {
     <CitiesProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="products" element={<Products />} />
-          <Route path="pricing" element={<Pricing />} />
-          <Route path="login" element={<Login />} />
+          <Route path="/"             element={<Homepage   />} />
+          <Route path="products"      element={<Products   />} />
+          <Route path="pricing"       element={<Pricing    />} />
+          <Route path="login"         element={<Login      />} />
 
-          <Route path="app" element={<AppLayout />}>
-            <Route index element={<Navigate to="cities" replace />} />
-            <Route path="cities" element={<CityList />} />
-            <Route path="cities/:id" element={<City />} />
-            <Route path="countries" element={<CountryList />} />
-            <Route path="form" element={<Form />} />
+          <Route path="app"           element={<AppLayout   />}>
+            <Route index              element={<Navigate to="cities" replace />} />
+            <Route path="cities"      element={<CityList    />} />
+            <Route path="cities/:id"  element={<City        />} />
+            <Route path="countries"   element={<CountryList />} />
+            <Route path="form"        element={<Form        />} />
           </Route>
 
           <Route path="*" element={<PageNotFound />} />
