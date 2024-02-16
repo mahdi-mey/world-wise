@@ -5,6 +5,8 @@ import Button from "./Button"
 import styles from "./Form.module.css"
 import { useNavigate } from "react-router-dom"
 import { useUrlPosition } from "../hoooks/useURLposition"
+import Message from '../components/Message'
+import Spinner from '../components/Spinner'
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -26,21 +28,25 @@ function Form() {
   const [lat, lng] = useUrlPosition()
 
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false)
-
+  const [geoCodingErr, setGeoCodingErr] = useState('')
   const [emoji, setEmoji] = useState('')
 
   useEffect(function () {
     async function fetchCityData() {
       try {
+        setGeoCodingErr('')
         setIsLoadingGeocoding(true) 
         const res = await fetch(`${BASE_URl}?latitude=${lat}&longitude=${lng}`)
         const data = await res.json()
+
+        if(!data.countryCode) throw new Error("That doesent seem to be a city click somewhere else")
+
         setCityName(data.cityName || data.locality)
         setCountry(data.countryName)
         setEmoji(convertToEmoji(data.countryCode))
       }
       catch (err){
-        
+        setGeoCodingErr(err.message)
       }
       finally {
         setIsLoadingGeocoding(false)
@@ -49,6 +55,10 @@ function Form() {
     fetchCityData()
   // }, [])
   }, [lat, lng])
+
+  if(isLoadingGeocoding) return <Spinner/ >
+
+  if(geoCodingErr) return <Message message={geoCodingErr} emoji="😉" />
 
   return (
     <form className={styles.form}>
