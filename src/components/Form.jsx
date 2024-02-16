@@ -1,25 +1,27 @@
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
 
-import { useState } from "react";
-import Button from './Button'
-import styles from "./Form.module.css";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react"
+import Button from "./Button"
+import styles from "./Form.module.css"
+import { useNavigate } from "react-router-dom"
+import { useUrlPosition } from "../hoooks/useURLposition"
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
     .toUpperCase()
     .split("")
-    .map((char) => 127397 + char.charCodeAt());
-  return String.fromCodePoint(...codePoints);
+    .map((char) => 127397 + char.charCodeAt())
+  return String.fromCodePoint(...codePoints)
 }
 
 function Form() {
-  const [cityName, setCityName] = useState("");
+  const [cityName, setCityName] = useState("")
   // const [country, setCountry] = useState("");
-  const [date, setDate] = useState(new Date());
-  const [notes, setNotes] = useState("");
+  const [date, setDate] = useState(new Date())
+  const [notes, setNotes] = useState("")
 
   const navigate = useNavigate()
+  const [mapLat, mapLng] = useUrlPosition()
 
   return (
     <form className={styles.form}>
@@ -53,14 +55,19 @@ function Form() {
 
       <div className={styles.buttons}>
         {/* <button>Add</button> */}
-        <Button type='primary'>Add</Button>
-        <Button type='back' onClick={(e) => {
-          e.preventDefault()
-          navigate(-1)
-        }}>&larr; Back</Button>
+        <Button type="primary">Add</Button>
+        <Button
+          type="back"
+          onClick={(e) => {
+            e.preventDefault()
+            navigate(-1)
+          }}
+        >
+          &larr; Back
+        </Button>
       </div>
     </form>
-  );
+  )
 }
 
-export default Form;
+export default Form
