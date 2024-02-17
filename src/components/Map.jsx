@@ -30,16 +30,14 @@ function Map() {
       if (mapLat && mapLng) {
         setMapPosition([mapLat, mapLng])
       }
-    },
-    [mapLat, mapLng]
-  )
+    },[mapLat, mapLng])
 
   useEffect(function () {
     if (geoLocationPosition) {
       setMapPosition([geoLocationPosition.lat, geoLocationPosition.lng])
     }
 
-  }, [geoLocationPosition]) //
+  }, [geoLocationPosition])
 
   return (
     <div

@@ -35,6 +35,18 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "id": "ea70",
+      "cityName": "Central District",
+      "country": "Iran (Islamic Republic of)",
+      "emoji": "🇮🇷",
+      "date": "2024-02-17T15:01:21.983Z",
+      "notes": "",
+      "position": {
+        "lat": "38.06216972374054",
+        "lng": "46.30187988281251"
+      }
     }
   ]
 }
