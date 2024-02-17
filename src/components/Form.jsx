@@ -24,7 +24,7 @@ function Form() {
   const [country, setCountry] = useState("")
   const [date, setDate] = useState(new Date())
   const [notes, setNotes] = useState("")
-  const {createCity, isLoading} = useCities()
+  const { createCity, isLoading } = useCities()
 
   const navigate = useNavigate()
   const [lat, lng] = useUrlPosition()
@@ -68,7 +68,7 @@ function Form() {
   async function handelSubmit(e) {
     e.preventDefault()
 
-    if(!cityName || !date) return
+    if (!cityName || !date) return
 
     const newCity = {
       cityName,
@@ -76,10 +76,10 @@ function Form() {
       emoji,
       date,
       notes,
-      position: {lat, lng}
+      position: { lat, lng },
     }
     await createCity(newCity)
-    navigate('/app')
+    navigate("/app")
   }
 
   if (isLoadingGeocoding) return <Spinner />
@@ -90,7 +90,10 @@ function Form() {
   if (geoCodingErr) return <Message message={geoCodingErr} emoji="😉" />
 
   return (
-    <form className={`${styles.form} ${isLoading ? styles.loading : ''}`} onSubmit={handelSubmit}>
+    <form
+      className={`${styles.form} ${isLoading ? styles.loading : ""}`}
+      onSubmit={handelSubmit}
+    >
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
@@ -121,8 +124,6 @@ function Form() {
       </div>
 
       <div className={styles.buttons}>
-        {/* <button>Add</button> */}
-        <Button type="primary">Add</Button>
         <Button
           type="back"
           onClick={(e) => {
@@ -132,6 +133,7 @@ function Form() {
         >
           &larr; Back
         </Button>
+        <Button type="primary">Add</Button>
       </div>
     </form>
   )
