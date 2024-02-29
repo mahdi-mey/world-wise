@@ -10,7 +10,7 @@ const FAKE_USER = {
 }
 
 const initialState = {
-  user: FAKE_USER,
+  user: null,
   isAuthenticated: false,
 }
 
@@ -30,8 +30,6 @@ function AuthProvider({ children }) {
     reducer,
     initialState
   )
-
-  console.log(user)
 
   function login(email, password) {
     if (email === FAKE_USER.email && password === FAKE_USER.password) {

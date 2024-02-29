@@ -3,20 +3,20 @@ import {
   Navigate,
   Route,
   Routes,
-} from "react-router-dom";
+} from "react-router-dom"
 
-import Products       from "./pages/Product";
-import Pricing        from "./pages/Pricing";
-import Homepage       from "./pages/Homepage";
-import PageNotFound   from "./pages/PageNotFound";
-import Login          from "./pages/Login";
-import AppLayout      from "./pages/AppLayout";
-import CityList       from "./components/CityList";
-import CountryList    from "./components/CountryList";
-import City           from "./components/City";
-import Form           from "./components/Form";
+import Products       from  "./pages/Product"
+import Pricing        from  "./pages/Pricing"
+import Homepage       from  "./pages/Homepage"
+import PageNotFound   from  "./pages/PageNotFound"
+import Login          from  "./pages/Login"
+import AppLayout      from  "./pages/AppLayout"
+import CityList       from  "./components/CityList"
+import CountryList    from  "./components/CountryList"
+import City           from  "./components/City"
+import Form           from  "./components/Form"
 
-import { CitiesProvider } from "./contexts/citiesContext";
+import { CitiesProvider } from "./contexts/CitiesContext"
 import { AuthProvider   } from './contexts/FakeAuthContext'
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
         </BrowserRouter>
       </CitiesProvider>
     </AuthProvider>
-  );
+  )
 }
 
-export default App;
+export default App

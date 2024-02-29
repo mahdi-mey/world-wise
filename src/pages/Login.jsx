@@ -12,19 +12,23 @@ export default function Login() {
 
   const navigate = useNavigate()
 
-  const { login, isAuthendicated } = useAuth()
+  const { login, isAuthenticated } = useAuth()
 
   function handelSubmit(e) {
     e.preventDefault()
-
-    if (email && password) login(email, password)
+    if (email && password) {
+      login(email, password)
+    }
   }
 
   useEffect(
     function () {
-      if (isAuthendicated) navigate("/app", { replace: true })
+      if (isAuthenticated) {
+        console.log("navigate to app")
+        navigate("/app", { replace: true })
+      }
     },
-    [isAuthendicated, navigate]
+    [isAuthenticated]
   )
 
   return (
