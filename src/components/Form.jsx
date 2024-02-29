@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 import { useUrlPosition } from "../hoooks/useURLposition"
 import Message from "../components/Message"
 import Spinner from "../components/Spinner"
-import { useCities } from "../contexts/citiesContext"
+import { useCities } from "../contexts/CitiesContext"
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -101,7 +101,6 @@ function Form() {
           onChange={(e) => setCityName(e.target.value)}
           value={cityName}
         />
-        {/* <span className={styles.flag}>{emoji}</span> */}
       </div>
 
       <div className={styles.row}>
