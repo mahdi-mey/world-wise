@@ -22,7 +22,7 @@ export default function Login() {
 
   useEffect(
     function () {
-      if (isAuthendicated) navigate("/app", {replace: true})
+      if (isAuthendicated) navigate("/app", { replace: true })
     },
     [isAuthendicated, navigate]
   )
