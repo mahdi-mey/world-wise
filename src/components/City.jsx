@@ -2,7 +2,7 @@ import styles from "./City.module.css"
 
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
-import { useCities } from "../contexts/citiesContext"
+import { useCities } from "../contexts/CitiesContext"
 import Spinner from "./Spinner"
 import Button from "./Button"
 import { useNavigate } from "react-router-dom"
