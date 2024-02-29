@@ -45,10 +45,6 @@ function reducer(state, action) {
 }
 
 function CitiesProvider({ children }) {
-  // const [cities, setCities] = useState([])
-  // const [isLoading, setIsLoading] = useState(false)
-  // const [currentCity, setCurrentCity] = useState({})
-
   const [{ cities, isLoading, currentCity }, dispatch] = useReducer(
     reducer,
     initialState
@@ -73,6 +69,8 @@ function CitiesProvider({ children }) {
   }, [])
 
   async function getCity(id) {
+    if (Number(id) === currentCity.id) return
+
     dispatch({ type: "loading" })
 
     try {
