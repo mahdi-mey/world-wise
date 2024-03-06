@@ -1,7 +1,7 @@
 import styles from "./Product.module.css";
 import PageNav from '../components/PageNav'
 
-export default function Product() {
+export default function Products() {
   return (
     <main className={styles.product}>
       <PageNav />
